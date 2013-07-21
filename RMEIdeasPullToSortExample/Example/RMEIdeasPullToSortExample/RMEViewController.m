@@ -29,8 +29,10 @@
 //
 
 #import "RMEViewController.h"
+#import "RMECustomCell.h"
 
 @interface RMEViewController ()
+@property (weak, nonatomic) IBOutlet UITableView *exampleTableView;
 
 @end
 
@@ -40,12 +42,35 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
+    [self.exampleTableView registerNib:[UINib nibWithNibName:@"RMECustomCell" bundle:nil]
+                forCellReuseIdentifier:@"RMECustomCell"];
 }
 
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+#pragma mark - Tableview datasource and delegate
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    RMECustomCell *cell = [self.exampleTableView dequeueReusableCellWithIdentifier:@"RMECustomCell"];
+    cell.mainTitleLabel.text = @"RME-IDEAS Limited";
+    cell.subTitleOneLabel.text = @"Founded:2010";
+    cell.subTitleTwoLabel.text = @"Worth: $100, 000, 000";
+    return cell;
+}
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    return 5;
+}
+
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
+{
+    return 1;
 }
 
 @end

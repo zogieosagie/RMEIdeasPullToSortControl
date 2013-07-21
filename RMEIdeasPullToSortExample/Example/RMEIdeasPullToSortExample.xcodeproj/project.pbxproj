@@ -19,6 +19,10 @@
 		9A4FDB65179B2D2C00FB7F2B /* RMEViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A4FDB64179B2D2C00FB7F2B /* RMEViewController.m */; };
 		9A4FDB68179B2D2C00FB7F2B /* RMEViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9A4FDB66179B2D2C00FB7F2B /* RMEViewController.xib */; };
 		9A4FDB71179B31C300FB7F2B /* RMEIdeasPullDownControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A4FDB70179B31C300FB7F2B /* RMEIdeasPullDownControl.m */; };
+		9A4FDB74179B3D2300FB7F2B /* RMECustomCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A4FDB73179B3D2300FB7F2B /* RMECustomCell.m */; };
+		9A4FDB76179B409400FB7F2B /* RMECustomCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9A4FDB75179B409400FB7F2B /* RMECustomCell.xib */; };
+		9A4FDB7A179B55B700FB7F2B /* CellDivider.png in Resources */ = {isa = PBXBuildFile; fileRef = 9A4FDB78179B55B700FB7F2B /* CellDivider.png */; };
+		9A4FDB7B179B55B700FB7F2B /* CellDivider@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9A4FDB79179B55B700FB7F2B /* CellDivider@2x.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,6 +44,11 @@
 		9A4FDB67179B2D2C00FB7F2B /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/RMEViewController.xib; sourceTree = "<group>"; };
 		9A4FDB6F179B31C300FB7F2B /* RMEIdeasPullDownControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RMEIdeasPullDownControl.h; sourceTree = "<group>"; };
 		9A4FDB70179B31C300FB7F2B /* RMEIdeasPullDownControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMEIdeasPullDownControl.m; sourceTree = "<group>"; };
+		9A4FDB72179B3D2300FB7F2B /* RMECustomCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RMECustomCell.h; sourceTree = "<group>"; };
+		9A4FDB73179B3D2300FB7F2B /* RMECustomCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMECustomCell.m; sourceTree = "<group>"; };
+		9A4FDB75179B409400FB7F2B /* RMECustomCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RMECustomCell.xib; sourceTree = "<group>"; };
+		9A4FDB78179B55B700FB7F2B /* CellDivider.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = CellDivider.png; sourceTree = "<group>"; };
+		9A4FDB79179B55B700FB7F2B /* CellDivider@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "CellDivider@2x.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,6 +68,7 @@
 		9A4FDB3F179B2D2B00FB7F2B = {
 			isa = PBXGroup;
 			children = (
+				9A4FDB77179B55B700FB7F2B /* Images */,
 				9A4FDB6E179B31C300FB7F2B /* RMEIdeasPullDownControl */,
 				9A4FDB51179B2D2B00FB7F2B /* RMEIdeasPullToSortExample */,
 				9A4FDB4A179B2D2B00FB7F2B /* Frameworks */,
@@ -93,6 +103,9 @@
 				9A4FDB64179B2D2C00FB7F2B /* RMEViewController.m */,
 				9A4FDB66179B2D2C00FB7F2B /* RMEViewController.xib */,
 				9A4FDB52179B2D2B00FB7F2B /* Supporting Files */,
+				9A4FDB72179B3D2300FB7F2B /* RMECustomCell.h */,
+				9A4FDB73179B3D2300FB7F2B /* RMECustomCell.m */,
+				9A4FDB75179B409400FB7F2B /* RMECustomCell.xib */,
 			);
 			path = RMEIdeasPullToSortExample;
 			sourceTree = "<group>";
@@ -119,6 +132,15 @@
 			);
 			name = RMEIdeasPullDownControl;
 			path = ../RMEIdeasPullDownControl;
+			sourceTree = "<group>";
+		};
+		9A4FDB77179B55B700FB7F2B /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				9A4FDB78179B55B700FB7F2B /* CellDivider.png */,
+				9A4FDB79179B55B700FB7F2B /* CellDivider@2x.png */,
+			);
+			path = Images;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -178,6 +200,9 @@
 				9A4FDB60179B2D2C00FB7F2B /* Default@2x.png in Resources */,
 				9A4FDB62179B2D2C00FB7F2B /* Default-568h@2x.png in Resources */,
 				9A4FDB68179B2D2C00FB7F2B /* RMEViewController.xib in Resources */,
+				9A4FDB76179B409400FB7F2B /* RMECustomCell.xib in Resources */,
+				9A4FDB7A179B55B700FB7F2B /* CellDivider.png in Resources */,
+				9A4FDB7B179B55B700FB7F2B /* CellDivider@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -192,6 +217,7 @@
 				9A4FDB5C179B2D2B00FB7F2B /* RMEAppDelegate.m in Sources */,
 				9A4FDB65179B2D2C00FB7F2B /* RMEViewController.m in Sources */,
 				9A4FDB71179B31C300FB7F2B /* RMEIdeasPullDownControl.m in Sources */,
+				9A4FDB74179B3D2300FB7F2B /* RMECustomCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

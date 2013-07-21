@@ -1,8 +1,8 @@
 //
-//  RMEIdeasPullDownControl.h
-//  Back in Touch
+//  RMECustomCell.m
+//  RMEIdeasPullToSortExample
 //
-//  Created by Osagie Zogie-Odigie on 01/06/2013.
+//  Created by Osagie Zogie-Odigie on 20/07/2013.
 //  The MIT License (MIT)
 //
 //  Copyright (c) 2013 RME-IDEAS Limited
@@ -28,33 +28,24 @@
 //  documentation would be appreciated but is not required.
 //
 
-#import <UIKit/UIKit.h>
+#import "RMECustomCell.h"
 
+@implementation RMECustomCell
 
-@class RMEIdeasPullDownControl;
+- (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
+{
+    self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
+    if (self) {
+        // Initialization code
+    }
+    return self;
+}
 
-@protocol RMEIdeasPullDownControlProtocol <NSObject>
-- (void) rmeIdeasPullDownControl:(RMEIdeasPullDownControl*)rmeIdeasPullDownControl selectedControlAtIndex:(NSUInteger)controlIndex;
+- (void)setSelected:(BOOL)selected animated:(BOOL)animated
+{
+    [super setSelected:selected animated:animated];
 
-
-@end
-
-@protocol RMEIdeasPullDownControlDataSource <NSObject>
-
-@required
-
-- (NSUInteger) numberOfButtonsRequired:(RMEIdeasPullDownControl*)rmeIdeasPullDownControl;
-- (UIImage*) rmeIdeasPullDownControl:(RMEIdeasPullDownControl*)rmeIdeasPullDownControl imageForControlAtIndex:(NSUInteger)controlIndex;
-- (UIImage*) rmeIdeasPullDownControl:(RMEIdeasPullDownControl*)rmeIdeasPullDownControl selectedImageForControlAtIndex:(NSUInteger)controlIndex;
-- (NSString*) rmeIdeasPullDownControl:(RMEIdeasPullDownControl*)rmeIdeasPullDownControl titleForControlAtIndex:(NSUInteger)controlIndex;
-
-@end
-
-@interface RMEIdeasPullDownControl : UIView
-
-- (void) selectControlAtIndex:(NSInteger)controlIndex;
-- (id)initWithDataSource:(id<RMEIdeasPullDownControlProtocol>)dataSource
-                delegate:(id<RMEIdeasPullDownControlProtocol>)delegate
-        clientScrollView:(UIScrollView*)clientScrollView;
+    // Configure the view for the selected state
+}
 
 @end
