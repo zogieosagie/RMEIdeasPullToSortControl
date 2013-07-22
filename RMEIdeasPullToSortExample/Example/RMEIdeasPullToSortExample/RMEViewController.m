@@ -30,9 +30,25 @@
 
 #import "RMEViewController.h"
 #import "RMECustomCell.h"
+#import "RMEIdeasPullDownControl.h"
 
-@interface RMEViewController ()
+#define kLastSelected @"kLastSelected"
+
+typedef enum
+{
+    AtoZ = 0,
+    ZtoA,
+    HighestToLowest,
+    LowestToHighest,
+    OldestToNewest,
+    NewestToOldest
+}
+TableSortSortCriteria;
+
+@interface RMEViewController ()<RMEIdeasPullDownControlDataSource, RMEIdeasPullDownControlProtocol>
 @property (weak, nonatomic) IBOutlet UITableView *exampleTableView;
+@property (strong, nonatomic) RMEIdeasPullDownControl *rmeideasPullDownControl;
+@property (strong, nonatomic) NSArray *sortTitlesArray;
 
 @end
 
@@ -42,8 +58,25 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
+    
+    self.sortTitlesArray = @[@"Listed from A - Z", @"Listed from Z - A", @"Listed from HIGH - LOW", @"Listed from LOW - HIGH", @"Listed from LOW - HIGH", @"Listed from LOW - HIGH"];
+    
+    self.rmeideasPullDownControl = [[RMEIdeasPullDownControl alloc] initWithDataSource:self
+                                                                              delegate:self
+                                                                      clientScrollView:self.exampleTableView];
+    CGRect originalFrame = self.rmeideasPullDownControl.frame;
+    self.rmeideasPullDownControl.frame = CGRectMake(0.0, 0.0, originalFrame.size.width, originalFrame.size.height);
+    [self.view addSubview:self.rmeideasPullDownControl];
+    // [self.view insertSubview:self.rmeideasPullDownControl belowSubview:self.exampleTableView];
+    
     [self.exampleTableView registerNib:[UINib nibWithNibName:@"RMECustomCell" bundle:nil]
                 forCellReuseIdentifier:@"RMECustomCell"];
+}
+
+- (void) viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    [self.rmeideasPullDownControl selectControlAtIndex:[[NSUserDefaults standardUserDefaults] integerForKey:kLastSelected]];//Retrieve last selection
 }
 
 - (void)didReceiveMemoryWarning
@@ -71,6 +104,96 @@
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
     return 1;
+}
+
+#pragma mark - RMEIdeasePullDownControl DataSource and Delegate methods
+- (void) rmeIdeasPullDownControl:(RMEIdeasPullDownControl*)rmeIdeasPullDownControl
+          selectedControlAtIndex:(NSUInteger)controlIndex
+{
+    switch (controlIndex)
+    {
+        case AtoZ:
+//            self.sortedPages = [[DataManager sharedInstance] contactsIDSortedBy:AtoZ];
+//            [[NSUserDefaults standardUserDefaults] setInteger:AtoZ forKey:kReachoutBookSortValueKey];
+            break;
+            
+        case ZtoA:
+//            self.sortedPages = [[DataManager sharedInstance] contactsIDSortedBy:ZtoA];
+//            [[NSUserDefaults standardUserDefaults] setInteger:ZtoA forKey:kReachoutBookSortValueKey];
+            break;
+            
+        case HighestToLowest:
+//            self.sortedPages = [[DataManager sharedInstance] contactsIDSortedBy:MostToLeast];
+//            [[NSUserDefaults standardUserDefaults] setInteger:MostToLeast forKey:kReachoutBookSortValueKey];
+            break;
+            
+        case LowestToHighest:
+//            self.sortedPages = [[DataManager sharedInstance] contactsIDSortedBy:LeastToMost];
+//            [[NSUserDefaults standardUserDefaults] setInteger:LeastToMost forKey:kReachoutBookSortValueKey];
+            break;
+            
+        case OldestToNewest:
+//            self.sortedPages = [[DataManager sharedInstance] contactsIDSortedBy:Random];
+//            [[NSUserDefaults standardUserDefaults] setInteger:Random forKey:kReachoutBookSortValueKey];
+            break;
+            
+        case NewestToOldest:
+        {
+//            InfoScreenViewController *infoScreen = [[InfoScreenViewController alloc] initWithNibName:@"InfoScreenViewController" bundle:nil startPage:ReachoutBookStartPage owner:self];
+//            [self presentViewController:infoScreen animated:YES completion:^{
+//                [self.rmeideasPullDownControl selectControlAtIndex:[[NSUserDefaults standardUserDefaults] integerForKey:kReachoutBookSortValueKey]];
+//                
+//            }];
+        }
+            
+            break;
+            
+        default:
+            break;
+    }
+    [[NSUserDefaults standardUserDefaults] synchronize];
+    
+    //NSLog(@"Sorted Okoko %@", self.sortedPages);
+    //[self reloadPageViewController];
+    
+}
+
+- (NSUInteger) numberOfButtonsRequired:(RMEIdeasPullDownControl*)rmeIdeasPullDownControl
+{
+    return 6;
+}
+
+- (UIImage*) rmeIdeasPullDownControl:(RMEIdeasPullDownControl*)rmeIdeasPullDownControl imageForControlAtIndex:(NSUInteger)controlIndex
+{
+    UIImage *image0 = [UIImage imageNamed:@"SortAZ.png"];
+    UIImage *image1 = [UIImage imageNamed:@"SortZA.png"];
+    UIImage *image2 = [UIImage imageNamed:@"HighLow.png"];
+    UIImage *image3 = [UIImage imageNamed:@"LowHigh.png"];
+    UIImage *image4 = [UIImage imageNamed:@"OldNew.png"];
+    UIImage *image5 = [UIImage imageNamed:@"NewOld.png"];
+    
+    NSArray *imagesArray = @[image0, image1, image2, image3, image4, image5];
+    return imagesArray[controlIndex];
+}
+
+- (UIImage*) rmeIdeasPullDownControl:(RMEIdeasPullDownControl*)rmeIdeasPullDownControl
+      selectedImageForControlAtIndex:(NSUInteger)controlIndex
+{
+    UIImage *image0 = [UIImage imageNamed:@"SortAZSelected.png"];
+    UIImage *image1 = [UIImage imageNamed:@"SortZASelected.png"];
+    UIImage *image2 = [UIImage imageNamed:@"HighLowSelected.png"];
+    UIImage *image3 = [UIImage imageNamed:@"LowHighSelected.png"];
+    UIImage *image4 = [UIImage imageNamed:@"OldNewSelected.png"];
+    UIImage *image5 = [UIImage imageNamed:@"NewOldSelected.png"];
+    
+    NSArray *imagesArray = @[image0, image1, image2, image3, image4, image5];
+    return imagesArray[controlIndex];
+}
+
+- (NSString*) rmeIdeasPullDownControl:(RMEIdeasPullDownControl*)rmeIdeasPullDownControl
+               titleForControlAtIndex:(NSUInteger)controlIndex
+{
+    return self.sortTitlesArray[controlIndex];
 }
 
 @end

@@ -72,7 +72,7 @@
                 delegate:(id<RMEIdeasPullDownControlProtocol>)delegate
         clientScrollView:(UIScrollView*)clientScrollView
 {
-    self = [super initWithFrame:CGRectMake(0.0, 0.0, 320.0, 70.0)];
+    self = [super initWithFrame:CGRectMake(0.0, 0.0, clientScrollView.frame.size.width, 70.0)];
     if (self) {
         // Custom initialization
         self.delegate = delegate;
@@ -94,7 +94,7 @@
     
     self.backgroundColor = [UIColor clearColor];
     self.selectionProcessingInProgress = NO;
-    self.containerView = [[UIView alloc] initWithFrame:CGRectMake(0.0, -70.0, 320.0, 70.0)];
+    self.containerView = [[UIView alloc] initWithFrame:CGRectMake(0.0, -70.0, self.frame.size.width, 70.0)];
     self.containerView.backgroundColor = [UIColor colorWithRed:220.0/255.0 green:220.0/255.0 blue:220.0/255.0 alpha:1.0];
     
     self.unselectedImagesArray = [[NSMutableArray alloc] initWithCapacity:1];
@@ -105,7 +105,7 @@
     NSAssert(self.numberOfButtons>1, @"Number of controls must be at least 2");
     
     self.cutOffDelta = kOperationalRange/self.numberOfButtons;
-    CGFloat requiredControlWidth = 320.0/self.numberOfButtons;
+    CGFloat requiredControlWidth = self.frame.size.width/self.numberOfButtons;
     CGFloat currentImageXcoordinate = 0.0;
     
     self.allControls =[[NSMutableArray alloc] initWithCapacity:1];
@@ -135,7 +135,7 @@
     self.selectedTextLabel.textAlignment = NSTextAlignmentCenter;
     [self.containerView addSubview:self.selectedTextLabel];
     
-    UIImageView *separatingLine = [[UIImageView alloc] initWithFrame:CGRectMake(0.0, 44.0, 320.0, 2.0)];
+    UIImageView *separatingLine = [[UIImageView alloc] initWithFrame:CGRectMake(0.0, 44.0, self.frame.size.width, 2.0)];
     [separatingLine setImage:[UIImage imageNamed:@"pullDownSeparatingLine.png"]];
     [self.containerView addSubview:separatingLine];
     
@@ -221,7 +221,7 @@
 {
     if (self.previousSelectedControlIndex != self.currentSelectedControlIndex)
     {
-        //NSLog(@"Delegate Notified");
+        //Notify the delegate
         [self.delegate rmeIdeasPullDownControl:self selectedControlAtIndex:self.currentSelectedControlIndex];
         self.previousSelectedControlIndex = self.currentSelectedControlIndex;
     }
