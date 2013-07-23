@@ -33,6 +33,9 @@
 #import "RMEIdeasPullDownControl.h"
 
 #define kLastSelected @"kLastSelected"
+#define kBrandName @"brandName"
+#define kBrandValue @"brandValue"
+#define kfoundedDate @"foundedDate"
 
 typedef enum
 {
@@ -49,6 +52,8 @@ TableSortSortCriteria;
 @property (weak, nonatomic) IBOutlet UITableView *exampleTableView;
 @property (strong, nonatomic) RMEIdeasPullDownControl *rmeideasPullDownControl;
 @property (strong, nonatomic) NSArray *sortTitlesArray;
+@property (strong, nonatomic) NSArray *tableDataArray;
+@property (strong, nonatomic) NSArray *mutableTableDataArray;
 
 @end
 
@@ -58,16 +63,16 @@ TableSortSortCriteria;
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
+    [self createTableData];
     
-    self.sortTitlesArray = @[@"Listed from A - Z", @"Listed from Z - A", @"Listed from HIGH - LOW", @"Listed from LOW - HIGH", @"Listed from LOW - HIGH", @"Listed from LOW - HIGH"];
+    self.sortTitlesArray = @[@"Listed from A - Z", @"Listed from Z - A", @"Brand value HIGHEST - LOWEST", @"Brand value LOWEST - HIGHEST", @"Founded OLDEST - NEWEST", @"Founded NEWEST - OLDEST"];
     
     self.rmeideasPullDownControl = [[RMEIdeasPullDownControl alloc] initWithDataSource:self
                                                                               delegate:self
                                                                       clientScrollView:self.exampleTableView];
     CGRect originalFrame = self.rmeideasPullDownControl.frame;
     self.rmeideasPullDownControl.frame = CGRectMake(0.0, 0.0, originalFrame.size.width, originalFrame.size.height);
-    [self.view addSubview:self.rmeideasPullDownControl];
-    // [self.view insertSubview:self.rmeideasPullDownControl belowSubview:self.exampleTableView];
+    [self.view insertSubview:self.rmeideasPullDownControl belowSubview:self.exampleTableView];
     
     [self.exampleTableView registerNib:[UINib nibWithNibName:@"RMECustomCell" bundle:nil]
                 forCellReuseIdentifier:@"RMECustomCell"];
@@ -90,15 +95,19 @@ TableSortSortCriteria;
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     RMECustomCell *cell = [self.exampleTableView dequeueReusableCellWithIdentifier:@"RMECustomCell"];
-    cell.mainTitleLabel.text = @"RME-IDEAS Limited";
-    cell.subTitleOneLabel.text = @"Founded:2010";
-    cell.subTitleTwoLabel.text = @"Worth: $100, 000, 000";
+    cell.mainTitleLabel.text = [[self.mutableTableDataArray objectAtIndex:[indexPath row]] objectForKey:kBrandName];
+    
+    NSString *foundedDate = [[self.mutableTableDataArray objectAtIndex:[indexPath row]] objectForKey:kfoundedDate];
+    cell.subTitleOneLabel.text = [NSString stringWithFormat:@"Founded: %@", foundedDate];
+    
+    NSString *brandValue = [[self.mutableTableDataArray objectAtIndex:[indexPath row]] objectForKey:kBrandValue];
+    cell.subTitleTwoLabel.text = [NSString stringWithFormat:@"Brand value: $%@", brandValue];
     return cell;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 5;
+    return [self.mutableTableDataArray count];
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
@@ -110,51 +119,45 @@ TableSortSortCriteria;
 - (void) rmeIdeasPullDownControl:(RMEIdeasPullDownControl*)rmeIdeasPullDownControl
           selectedControlAtIndex:(NSUInteger)controlIndex
 {
+    NSSortDescriptor *sortDescriptor = nil;
+    NSArray *sortDescriptors = nil;
     switch (controlIndex)
     {
         case AtoZ:
-//            self.sortedPages = [[DataManager sharedInstance] contactsIDSortedBy:AtoZ];
-//            [[NSUserDefaults standardUserDefaults] setInteger:AtoZ forKey:kReachoutBookSortValueKey];
+            sortDescriptor = [[NSSortDescriptor alloc] initWithKey:kBrandName ascending:YES];
+            sortDescriptors = @[sortDescriptor];
             break;
             
         case ZtoA:
-//            self.sortedPages = [[DataManager sharedInstance] contactsIDSortedBy:ZtoA];
-//            [[NSUserDefaults standardUserDefaults] setInteger:ZtoA forKey:kReachoutBookSortValueKey];
+            sortDescriptor = [[NSSortDescriptor alloc] initWithKey:kBrandName ascending:NO];
+            sortDescriptors = @[sortDescriptor];
             break;
             
         case HighestToLowest:
-//            self.sortedPages = [[DataManager sharedInstance] contactsIDSortedBy:MostToLeast];
-//            [[NSUserDefaults standardUserDefaults] setInteger:MostToLeast forKey:kReachoutBookSortValueKey];
+            sortDescriptor = [[NSSortDescriptor alloc] initWithKey:kBrandValue ascending:NO];
+            sortDescriptors = @[sortDescriptor];
             break;
             
         case LowestToHighest:
-//            self.sortedPages = [[DataManager sharedInstance] contactsIDSortedBy:LeastToMost];
-//            [[NSUserDefaults standardUserDefaults] setInteger:LeastToMost forKey:kReachoutBookSortValueKey];
+            sortDescriptor = [[NSSortDescriptor alloc] initWithKey:kBrandValue ascending:YES];
+            sortDescriptors = @[sortDescriptor];
             break;
             
         case OldestToNewest:
-//            self.sortedPages = [[DataManager sharedInstance] contactsIDSortedBy:Random];
-//            [[NSUserDefaults standardUserDefaults] setInteger:Random forKey:kReachoutBookSortValueKey];
+            sortDescriptor = [[NSSortDescriptor alloc] initWithKey:kfoundedDate ascending:YES];
+            sortDescriptors = @[sortDescriptor];
             break;
             
         case NewestToOldest:
-        {
-//            InfoScreenViewController *infoScreen = [[InfoScreenViewController alloc] initWithNibName:@"InfoScreenViewController" bundle:nil startPage:ReachoutBookStartPage owner:self];
-//            [self presentViewController:infoScreen animated:YES completion:^{
-//                [self.rmeideasPullDownControl selectControlAtIndex:[[NSUserDefaults standardUserDefaults] integerForKey:kReachoutBookSortValueKey]];
-//                
-//            }];
-        }
-            
+            sortDescriptor = [[NSSortDescriptor alloc] initWithKey:kfoundedDate ascending:NO];
+            sortDescriptors = @[sortDescriptor];
             break;
             
         default:
             break;
     }
-    [[NSUserDefaults standardUserDefaults] synchronize];
-    
-    //NSLog(@"Sorted Okoko %@", self.sortedPages);
-    //[self reloadPageViewController];
+    self.mutableTableDataArray = [self.tableDataArray sortedArrayUsingDescriptors:sortDescriptors];
+    [self.exampleTableView reloadData];
     
 }
 
@@ -194,6 +197,11 @@ TableSortSortCriteria;
                titleForControlAtIndex:(NSUInteger)controlIndex
 {
     return self.sortTitlesArray[controlIndex];
+}
+
+- (void) createTableData
+{
+    self.tableDataArray = @[@{kBrandName: @"Apple", kBrandValue: @"87 304 000 000", kfoundedDate: @"1976"}, @{kBrandName: @"Samsung Group", kBrandValue: @"58 771 000 000", kfoundedDate: @"1938"}, @{kBrandName: @"Google", kBrandValue: @"52 132 000 000", kfoundedDate: @"1998"}, @{kBrandName: @"Microsoft", kBrandValue: @"45 535 000 000", kfoundedDate: @"1975"}, @{kBrandName: @"Walmart", kBrandValue: @"42 303 000 000", kfoundedDate: @"1962"}, @{kBrandName: @"IBM", kBrandValue: @"37 721 000 000", kfoundedDate: @"1911"}, @{kBrandName: @"General Electric", kBrandValue: @"37 161 000 000", kfoundedDate: @"1892"}, @{kBrandName: @"Amazon", kBrandValue: @"36 788 000 000", kfoundedDate: @"1994"}, @{kBrandName: @"Coca-Cola", kBrandValue: @"34 205 000 000", kfoundedDate: @"1892"}, @{kBrandName: @"Verizon", kBrandValue: @"30 729 000 000", kfoundedDate: @"1983"}];
 }
 
 @end

@@ -45,6 +45,7 @@
 								<int key="NSvFlags">290</int>
 								<string key="NSFrameSize">{320, 2}</string>
 								<reference key="NSSuperview" ref="898566359"/>
+								<reference key="NSWindow"/>
 								<string key="NSReuseIdentifierKey">_NS:9</string>
 								<bool key="IBUIUserInteractionEnabled">NO</bool>
 								<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
@@ -58,6 +59,7 @@
 								<int key="NSvFlags">290</int>
 								<string key="NSFrame">{{20, 8}, {280, 21}}</string>
 								<reference key="NSSuperview" ref="898566359"/>
+								<reference key="NSWindow"/>
 								<string key="NSReuseIdentifierKey">_NS:9</string>
 								<bool key="IBUIOpaque">NO</bool>
 								<bool key="IBUIClipsSubviews">YES</bool>
@@ -90,30 +92,31 @@
 							<object class="IBUILabel" id="903644411">
 								<reference key="NSNextResponder" ref="898566359"/>
 								<int key="NSvFlags">290</int>
-								<string key="NSFrame">{{20, 28}, {116, 21}}</string>
+								<string key="NSFrame">{{20, 28}, {94, 21}}</string>
 								<reference key="NSSuperview" ref="898566359"/>
+								<reference key="NSWindow"/>
 								<string key="NSReuseIdentifierKey">_NS:9</string>
 								<bool key="IBUIOpaque">NO</bool>
 								<bool key="IBUIClipsSubviews">YES</bool>
 								<int key="IBUIContentMode">7</int>
 								<bool key="IBUIUserInteractionEnabled">NO</bool>
 								<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
-								<string key="IBUIText">Started: 2009</string>
+								<string key="IBUIText">Founded: 2009</string>
 								<object class="NSColor" key="IBUITextColor" id="226349835">
 									<int key="NSColorSpace">1</int>
 									<bytes key="NSRGB">MCAwLjUwMTk2MDgxNCAxAA</bytes>
 								</object>
 								<reference key="IBUIHighlightedColor" ref="513052561"/>
 								<int key="IBUIBaselineAdjustment">0</int>
-								<object class="IBUIFontDescription" key="IBUIFontDescription" id="674629085">
+								<object class="IBUIFontDescription" key="IBUIFontDescription" id="637679528">
 									<string key="name">HelveticaNeue</string>
 									<string key="family">Helvetica Neue</string>
 									<int key="traits">0</int>
-									<double key="pointSize">14</double>
+									<double key="pointSize">12</double>
 								</object>
-								<object class="NSFont" key="IBUIFont" id="668764175">
+								<object class="NSFont" key="IBUIFont" id="466685780">
 									<string key="NSName">HelveticaNeue-Medium</string>
-									<double key="NSSize">14</double>
+									<double key="NSSize">12</double>
 									<int key="NSfFlags">16</int>
 								</object>
 								<bool key="IBUIAdjustsFontSizeToFit">NO</bool>
@@ -121,8 +124,9 @@
 							<object class="IBUILabel" id="618762043">
 								<reference key="NSNextResponder" ref="898566359"/>
 								<int key="NSvFlags">290</int>
-								<string key="NSFrame">{{149, 28}, {166, 21}}</string>
+								<string key="NSFrame">{{128, 28}, {172, 21}}</string>
 								<reference key="NSSuperview" ref="898566359"/>
+								<reference key="NSWindow"/>
 								<string key="NSReuseIdentifierKey">_NS:9</string>
 								<bool key="IBUIOpaque">NO</bool>
 								<bool key="IBUIClipsSubviews">YES</bool>
@@ -133,13 +137,14 @@
 								<reference key="IBUITextColor" ref="226349835"/>
 								<reference key="IBUIHighlightedColor" ref="513052561"/>
 								<int key="IBUIBaselineAdjustment">0</int>
-								<reference key="IBUIFontDescription" ref="674629085"/>
-								<reference key="IBUIFont" ref="668764175"/>
+								<reference key="IBUIFontDescription" ref="637679528"/>
+								<reference key="IBUIFont" ref="466685780"/>
 								<bool key="IBUIAdjustsFontSizeToFit">NO</bool>
 							</object>
 						</array>
 						<string key="NSFrameSize">{320, 49}</string>
 						<reference key="NSSuperview" ref="546794561"/>
+						<reference key="NSWindow"/>
 						<string key="NSReuseIdentifierKey">_NS:11</string>
 						<object class="NSColor" key="IBUIBackgroundColor">
 							<int key="NSColorSpace">3</int>
@@ -154,6 +159,7 @@
 				</array>
 				<string key="NSFrameSize">{320, 50}</string>
 				<reference key="NSSuperview"/>
+				<reference key="NSWindow"/>
 				<reference key="NSNextKeyView" ref="898566359"/>
 				<string key="NSReuseIdentifierKey">_NS:9</string>
 				<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
@@ -258,7 +264,37 @@
 			<nil key="sourceID"/>
 			<int key="maxID">14</int>
 		</object>
-		<object class="IBClassDescriber" key="IBDocument.Classes"/>
+		<object class="IBClassDescriber" key="IBDocument.Classes">
+			<array class="NSMutableArray" key="referencedPartialClassDescriptions">
+				<object class="IBPartialClassDescription">
+					<string key="className">RMECustomCell</string>
+					<string key="superclassName">UITableViewCell</string>
+					<dictionary class="NSMutableDictionary" key="outlets">
+						<string key="mainTitleLabel">UILabel</string>
+						<string key="subTitleOneLabel">UILabel</string>
+						<string key="subTitleTwoLabel">UILabel</string>
+					</dictionary>
+					<dictionary class="NSMutableDictionary" key="toOneOutletInfosByName">
+						<object class="IBToOneOutletInfo" key="mainTitleLabel">
+							<string key="name">mainTitleLabel</string>
+							<string key="candidateClassName">UILabel</string>
+						</object>
+						<object class="IBToOneOutletInfo" key="subTitleOneLabel">
+							<string key="name">subTitleOneLabel</string>
+							<string key="candidateClassName">UILabel</string>
+						</object>
+						<object class="IBToOneOutletInfo" key="subTitleTwoLabel">
+							<string key="name">subTitleTwoLabel</string>
+							<string key="candidateClassName">UILabel</string>
+						</object>
+					</dictionary>
+					<object class="IBClassDescriptionSource" key="sourceIdentifier">
+						<string key="majorKey">IBProjectSource</string>
+						<string key="minorKey">./Classes/RMECustomCell.h</string>
+					</object>
+				</object>
+			</array>
+		</object>
 		<int key="IBDocument.localizationMode">0</int>
 		<string key="IBDocument.TargetRuntimeIdentifier">IBCocoaTouchFramework</string>
 		<bool key="IBDocument.PluginDeclaredDependenciesTrackSystemTargetVersion">YES</bool>
