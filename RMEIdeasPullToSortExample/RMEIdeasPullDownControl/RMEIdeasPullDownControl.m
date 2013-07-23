@@ -29,7 +29,6 @@
 //
 
 #import "RMEIdeasPullDownControl.h"
-#import <AudioToolbox/AudioToolbox.h>
 
 #define kControlStartIndexTag 500
 #define kFuzzyThreshold 70.0
@@ -91,7 +90,6 @@
     self.clipsToBounds = YES;
     [self.clientScrollView addObserver:self forKeyPath:@"contentOffset" options:0 context:NULL];
     
-    
     self.backgroundColor = [UIColor clearColor];
     self.selectionProcessingInProgress = NO;
     self.containerView = [[UIView alloc] initWithFrame:CGRectMake(0.0, -70.0, self.frame.size.width, 70.0)];
@@ -139,9 +137,7 @@
     [separatingLine setImage:[UIImage imageNamed:@"pullDownSeparatingLine.png"]];
     [self.containerView addSubview:separatingLine];
     
-    
     [self addSubview:self.containerView];
-    
 }
 
 - (void) deselectAllControls
@@ -159,17 +155,12 @@
         {
             [self psuedoScrollViewDidScroll];
         }
-        
     }
-    
 }
 
 - (void) dealloc
 {
     [self.clientScrollView removeObserver:self forKeyPath:@"contentOffset"];
-//    [self.clientScrollView removeObserver:self forKeyPath:@"isDragging"];
-//    [self.clientScrollView removeObserver:self forKeyPath:@"decelerationRate"];
-//    [self.clientScrollView removeObserver:self forKeyPath:@"tracking"];
 }
 
 #pragma mark - CopyScrollView delegate methods
@@ -191,9 +182,6 @@
         [self decodeButtonSelectionForOffset:(-1*self.clientScrollView.contentOffset.y)];
     }
     
-    
-    //NSLog(@"Psuedo offset = %5.5f", yOffset);
-    
     if (yOffset < 0)
     {
         if (yOffset > kShowInfoDownThreshold)
@@ -212,7 +200,6 @@
             self.selectedTextLabel.textColor = [UIColor colorWithRed:155.0/255.0 green:155.0/255.0 blue:155.0/255.0 alpha:1.0];
             self.selectedTextLabel.text = @"Keep dragging to change; Release to select";
         }
-
     }
 }
 
@@ -234,18 +221,10 @@
     NSInteger buttonChangeNumber = (NSUInteger)floorf(offset - kFuzzyThreshold)/self.cutOffDelta;
     NSInteger tempNewButtonNumber = 0;
     
-    
     //Important Note: buttonChangeNumber is with reference to initial button position.
-    
     if (buttonChangeNumber > (self.numberOfButtons - 1))
     {
-        //        tempNewButtonNumber = self.currentSelectedControlIndex - 1;
-        //        if (tempNewButtonNumber < 1)
-        //        {
-        //            tempNewButtonNumber = self.numberOfButtons - 1;
-        //        }
         buttonChangeNumber = (self.numberOfButtons - 1);
-        //AudioServicesPlaySystemSound(kSystemSoundID_Vibrate);
     }
     //else
     {
@@ -264,7 +243,6 @@
 
 - (void) updateSelectedButtonAt:(NSInteger)index
 {
-   
     for (int i = 0; i < self.numberOfButtons; i++)
     {
         UIImageView *thisControl = self.allControls[i];

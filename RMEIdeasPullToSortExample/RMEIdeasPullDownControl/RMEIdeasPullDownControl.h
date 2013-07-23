@@ -53,7 +53,9 @@
 @interface RMEIdeasPullDownControl : UIView
 
 - (void) selectControlAtIndex:(NSInteger)controlIndex;
-- (id)initWithDataSource:(id<RMEIdeasPullDownControlProtocol>)dataSource
+
+//Designated initializer
+- (id)initWithDataSource:(id<RMEIdeasPullDownControlDataSource>)dataSource
                 delegate:(id<RMEIdeasPullDownControlProtocol>)delegate
         clientScrollView:(UIScrollView*)clientScrollView;
 
