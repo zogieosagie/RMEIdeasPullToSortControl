@@ -48,6 +48,8 @@
 		9AC70214179DA51700547A91 /* LowHighSelected.png in Resources */ = {isa = PBXBuildFile; fileRef = 9AC7020D179DA51700547A91 /* LowHighSelected.png */; };
 		9AC70215179DA51700547A91 /* LowHighSelected@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9AC7020E179DA51700547A91 /* LowHighSelected@2x.png */; };
 		9AFF181E179E0AC4000A4B4D /* HowtoUse.txt in Resources */ = {isa = PBXBuildFile; fileRef = 9AFF181D179E0AC4000A4B4D /* HowtoUse.txt */; };
+		9AFF1821179E0DF4000A4B4D /* BIT_Top_Banner.png in Resources */ = {isa = PBXBuildFile; fileRef = 9AFF181F179E0DF4000A4B4D /* BIT_Top_Banner.png */; };
+		9AFF1822179E0DF4000A4B4D /* BIT_Top_Banner@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9AFF1820179E0DF4000A4B4D /* BIT_Top_Banner@2x.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -99,6 +101,8 @@
 		9AC7020D179DA51700547A91 /* LowHighSelected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = LowHighSelected.png; sourceTree = "<group>"; };
 		9AC7020E179DA51700547A91 /* LowHighSelected@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "LowHighSelected@2x.png"; sourceTree = "<group>"; };
 		9AFF181D179E0AC4000A4B4D /* HowtoUse.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = HowtoUse.txt; sourceTree = "<group>"; };
+		9AFF181F179E0DF4000A4B4D /* BIT_Top_Banner.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = BIT_Top_Banner.png; sourceTree = "<group>"; };
+		9AFF1820179E0DF4000A4B4D /* BIT_Top_Banner@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "BIT_Top_Banner@2x.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -188,6 +192,8 @@
 		9A4FDB77179B55B700FB7F2B /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				9AFF181F179E0DF4000A4B4D /* BIT_Top_Banner.png */,
+				9AFF1820179E0DF4000A4B4D /* BIT_Top_Banner@2x.png */,
 				9AC70208179DA51700547A91 /* HighLow.png */,
 				9AC70209179DA51700547A91 /* HighLow@2x.png */,
 				9AC7020A179DA51700547A91 /* HighLowSelected.png */,
@@ -303,6 +309,8 @@
 				9AC70214179DA51700547A91 /* LowHighSelected.png in Resources */,
 				9AC70215179DA51700547A91 /* LowHighSelected@2x.png in Resources */,
 				9AFF181E179E0AC4000A4B4D /* HowtoUse.txt in Resources */,
+				9AFF1821179E0DF4000A4B4D /* BIT_Top_Banner.png in Resources */,
+				9AFF1822179E0DF4000A4B4D /* BIT_Top_Banner@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -368,7 +376,7 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 			};
@@ -392,7 +400,7 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
