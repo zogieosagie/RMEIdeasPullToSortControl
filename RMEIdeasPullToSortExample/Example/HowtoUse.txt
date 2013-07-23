@@ -1,0 +1,7 @@
+/* 
+  HowtoUse.strings
+  RMEIdeasPullToSortExample
+
+  Created by Osagie Zogie-Odigie on 23/07/2013.
+  Copyright (c) 2013 Osagie Zogie-Odigie. All rights reserved.
+*/

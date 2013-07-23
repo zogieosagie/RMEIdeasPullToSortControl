@@ -65,7 +65,7 @@ TableSortSortCriteria;
 	// Do any additional setup after loading the view, typically from a nib.
     [self createTableData];
     
-    self.sortTitlesArray = @[@"Listed from A - Z", @"Listed from Z - A", @"Brand value HIGHEST - LOWEST", @"Brand value LOWEST - HIGHEST", @"Founded OLDEST - NEWEST", @"Founded NEWEST - OLDEST"];
+    self.sortTitlesArray = @[@"Listed from A - Z", @"Listed from Z - A", @"Brand value: HIGHEST - LOWEST", @"Brand value: LOWEST - HIGHEST", @"Founded: OLDEST - NEWEST", @"Founded: NEWEST - OLDEST"];
     
     self.rmeideasPullDownControl = [[RMEIdeasPullDownControl alloc] initWithDataSource:self
                                                                               delegate:self
