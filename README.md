@@ -5,4 +5,4 @@ RMEIdeasPullToSort control allows users to perform multiple custom actions when 
 
 We created this control while trying to solve some of the challenegs we faced during the development of our latest app Back in Touch. Back in Touch enables users keep in touch with contacts who might be lost or forgotten in their ever growing phone book.
 
-Back in Touch - itunes.apple.com/app/back-in-touch/id611668753 
+Back in Touch - https://itunes.apple.com/app/back-in-touch/id611668753 
