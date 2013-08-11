@@ -65,13 +65,17 @@ TableSortSortCriteria;
 	// Do any additional setup after loading the view, typically from a nib.
     [self createTableData];
     
+    //Create an array of titles to display as different functions are selected by the user.
     self.sortTitlesArray = @[@"Listed from A - Z", @"Listed from Z - A", @"Brand value: HIGHEST - LOWEST", @"Brand value: LOWEST - HIGHEST", @"Founded: OLDEST - NEWEST", @"Founded: NEWEST - OLDEST"];
     
+    //Initializing RMEIdeasPullDownControl property using the designated initializer.  
     self.rmeideasPullDownControl = [[RMEIdeasPullDownControl alloc] initWithDataSource:self
                                                                               delegate:self
                                                                       clientScrollView:self.exampleTableView];
     CGRect originalFrame = self.rmeideasPullDownControl.frame;
     self.rmeideasPullDownControl.frame = CGRectMake(0.0, 45.0, originalFrame.size.width, originalFrame.size.height);
+    
+    //It is recommended that the control is placed behind the client scrollView. Remember to make its background transparent.
     [self.view insertSubview:self.rmeideasPullDownControl belowSubview:self.exampleTableView];
     
     [self.exampleTableView registerNib:[UINib nibWithNibName:@"RMECustomCell" bundle:nil]
@@ -81,13 +85,20 @@ TableSortSortCriteria;
 - (void) viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
-    [self.rmeideasPullDownControl selectControlAtIndex:[[NSUserDefaults standardUserDefaults] integerForKey:kLastSelected]];//Retrieve last selection
+    
+    //Tell the control what selection to make. In this case we use NSUserDefaults to save and retrieve last selection made.
+    [self.rmeideasPullDownControl selectControlAtIndex:[[NSUserDefaults standardUserDefaults] integerForKey:kLastSelected]];
 }
 
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (void) createTableData
+{
+    self.tableDataArray = @[@{kBrandName: @"Apple", kBrandValue: @"87 304 000 000", kfoundedDate: @"1976"}, @{kBrandName: @"Samsung Group", kBrandValue: @"58 771 000 000", kfoundedDate: @"1938"}, @{kBrandName: @"Google", kBrandValue: @"52 132 000 000", kfoundedDate: @"1998"}, @{kBrandName: @"Microsoft", kBrandValue: @"45 535 000 000", kfoundedDate: @"1975"}, @{kBrandName: @"Walmart", kBrandValue: @"42 303 000 000", kfoundedDate: @"1962"}, @{kBrandName: @"IBM", kBrandValue: @"37 721 000 000", kfoundedDate: @"1911"}, @{kBrandName: @"General Electric", kBrandValue: @"37 161 000 000", kfoundedDate: @"1892"}, @{kBrandName: @"Amazon", kBrandValue: @"36 788 000 000", kfoundedDate: @"1994"}, @{kBrandName: @"Coca-Cola", kBrandValue: @"34 205 000 000", kfoundedDate: @"1892"}, @{kBrandName: @"Verizon", kBrandValue: @"30 729 000 000", kfoundedDate: @"1983"}];
 }
 
 #pragma mark - Tableview datasource and delegate
@@ -197,11 +208,6 @@ TableSortSortCriteria;
                titleForControlAtIndex:(NSUInteger)controlIndex
 {
     return self.sortTitlesArray[controlIndex];
-}
-
-- (void) createTableData
-{
-    self.tableDataArray = @[@{kBrandName: @"Apple", kBrandValue: @"87 304 000 000", kfoundedDate: @"1976"}, @{kBrandName: @"Samsung Group", kBrandValue: @"58 771 000 000", kfoundedDate: @"1938"}, @{kBrandName: @"Google", kBrandValue: @"52 132 000 000", kfoundedDate: @"1998"}, @{kBrandName: @"Microsoft", kBrandValue: @"45 535 000 000", kfoundedDate: @"1975"}, @{kBrandName: @"Walmart", kBrandValue: @"42 303 000 000", kfoundedDate: @"1962"}, @{kBrandName: @"IBM", kBrandValue: @"37 721 000 000", kfoundedDate: @"1911"}, @{kBrandName: @"General Electric", kBrandValue: @"37 161 000 000", kfoundedDate: @"1892"}, @{kBrandName: @"Amazon", kBrandValue: @"36 788 000 000", kfoundedDate: @"1994"}, @{kBrandName: @"Coca-Cola", kBrandValue: @"34 205 000 000", kfoundedDate: @"1892"}, @{kBrandName: @"Verizon", kBrandValue: @"30 729 000 000", kfoundedDate: @"1983"}];
 }
 
 @end

@@ -34,6 +34,9 @@
 @class RMEIdeasPullDownControl;
 
 @protocol RMEIdeasPullDownControlProtocol <NSObject>
+/*
+ Informs the delegate that a selection has been made
+ */
 - (void) rmeIdeasPullDownControl:(RMEIdeasPullDownControl*)rmeIdeasPullDownControl selectedControlAtIndex:(NSUInteger)controlIndex;
 
 
@@ -43,15 +46,16 @@
 
 @required
 
-- (NSUInteger) numberOfButtonsRequired:(RMEIdeasPullDownControl*)rmeIdeasPullDownControl;
 - (UIImage*) rmeIdeasPullDownControl:(RMEIdeasPullDownControl*)rmeIdeasPullDownControl imageForControlAtIndex:(NSUInteger)controlIndex;
 - (UIImage*) rmeIdeasPullDownControl:(RMEIdeasPullDownControl*)rmeIdeasPullDownControl selectedImageForControlAtIndex:(NSUInteger)controlIndex;
 - (NSString*) rmeIdeasPullDownControl:(RMEIdeasPullDownControl*)rmeIdeasPullDownControl titleForControlAtIndex:(NSUInteger)controlIndex;
+- (NSUInteger) numberOfButtonsRequired:(RMEIdeasPullDownControl*)rmeIdeasPullDownControl;
+
 
 @end
 
 @interface RMEIdeasPullDownControl : UIView
-
+//Tells the control which selection to make.
 - (void) selectControlAtIndex:(NSInteger)controlIndex;
 
 //Designated initializer

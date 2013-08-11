@@ -40,3 +40,6 @@ Please follow the steps below to use RMEIdeasPullDownControl.
 5. Implement all the data source and delegate methods.
 
 Thats all you need to do. Thank you for your time.
+
+Please check out the app that inspired the creation of this control on the app store.
+Back in Touch (https://itunes.apple.com/app/back-in-touch/id611668753). Thanks again.
