@@ -174,6 +174,8 @@
     else if (yOffset > -1.0)
     {
         self.selectionProcessingInProgress = NO;
+         //Prevent quick upward movements from leaving the control visible
+        self.containerView.frame = CGRectMake(0, -70, 320, 70);
         [self notifyDelegateOfSelection];
         
     }
@@ -188,6 +190,9 @@
         {
             self.containerView.frame = CGRectMake(0.0, (kShowInfoDownThreshold - yOffset), 320.0, 70.0);
             
+        } else {
+            //Prevent quick downward movements from leaving the control partially visible
+            self.containerView.frame = CGRectMake(0, 0, 320, 70);
         }
         if (yOffset < kShowSelectionDownThershold)
         {
