@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		907724BE2384640200789EAC /* RMEView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9077249723845D6E00789EAC /* RMEView.storyboard */; };
+		907724C22384655900789EAC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 907724C12384655900789EAC /* Assets.xcassets */; };
 		9A4FDB4C179B2D2B00FB7F2B /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9A4FDB4B179B2D2B00FB7F2B /* UIKit.framework */; };
 		9A4FDB4E179B2D2B00FB7F2B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9A4FDB4D179B2D2B00FB7F2B /* Foundation.framework */; };
 		9A4FDB50179B2D2B00FB7F2B /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9A4FDB4F179B2D2B00FB7F2B /* CoreGraphics.framework */; };
@@ -17,10 +19,8 @@
 		9A4FDB60179B2D2C00FB7F2B /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9A4FDB5F179B2D2C00FB7F2B /* Default@2x.png */; };
 		9A4FDB62179B2D2C00FB7F2B /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9A4FDB61179B2D2C00FB7F2B /* Default-568h@2x.png */; };
 		9A4FDB65179B2D2C00FB7F2B /* RMEViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A4FDB64179B2D2C00FB7F2B /* RMEViewController.m */; };
-		9A4FDB68179B2D2C00FB7F2B /* RMEViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9A4FDB66179B2D2C00FB7F2B /* RMEViewController.xib */; };
 		9A4FDB71179B31C300FB7F2B /* RMEIdeasPullDownControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A4FDB70179B31C300FB7F2B /* RMEIdeasPullDownControl.m */; };
 		9A4FDB74179B3D2300FB7F2B /* RMECustomCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A4FDB73179B3D2300FB7F2B /* RMECustomCell.m */; };
-		9A4FDB76179B409400FB7F2B /* RMECustomCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9A4FDB75179B409400FB7F2B /* RMECustomCell.xib */; };
 		9A4FDB7A179B55B700FB7F2B /* CellDivider.png in Resources */ = {isa = PBXBuildFile; fileRef = 9A4FDB78179B55B700FB7F2B /* CellDivider.png */; };
 		9A4FDB7B179B55B700FB7F2B /* CellDivider@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9A4FDB79179B55B700FB7F2B /* CellDivider@2x.png */; };
 		9AC701F6179DA3AA00547A91 /* NewOld.png in Resources */ = {isa = PBXBuildFile; fileRef = 9AC701DE179DA3AA00547A91 /* NewOld.png */; };
@@ -53,6 +53,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		9077249723845D6E00789EAC /* RMEView.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = RMEView.storyboard; sourceTree = "<group>"; };
+		907724C12384655900789EAC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		9A4FDB48179B2D2B00FB7F2B /* RMEIdeasPullToSortExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RMEIdeasPullToSortExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9A4FDB4B179B2D2B00FB7F2B /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		9A4FDB4D179B2D2B00FB7F2B /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -68,12 +70,10 @@
 		9A4FDB61179B2D2C00FB7F2B /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		9A4FDB63179B2D2C00FB7F2B /* RMEViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RMEViewController.h; sourceTree = "<group>"; };
 		9A4FDB64179B2D2C00FB7F2B /* RMEViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RMEViewController.m; sourceTree = "<group>"; };
-		9A4FDB67179B2D2C00FB7F2B /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/RMEViewController.xib; sourceTree = "<group>"; };
 		9A4FDB6F179B31C300FB7F2B /* RMEIdeasPullDownControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RMEIdeasPullDownControl.h; sourceTree = "<group>"; };
 		9A4FDB70179B31C300FB7F2B /* RMEIdeasPullDownControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMEIdeasPullDownControl.m; sourceTree = "<group>"; };
 		9A4FDB72179B3D2300FB7F2B /* RMECustomCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RMECustomCell.h; sourceTree = "<group>"; };
 		9A4FDB73179B3D2300FB7F2B /* RMECustomCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMECustomCell.m; sourceTree = "<group>"; };
-		9A4FDB75179B409400FB7F2B /* RMECustomCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RMECustomCell.xib; sourceTree = "<group>"; };
 		9A4FDB78179B55B700FB7F2B /* CellDivider.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = CellDivider.png; sourceTree = "<group>"; };
 		9A4FDB79179B55B700FB7F2B /* CellDivider@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "CellDivider@2x.png"; sourceTree = "<group>"; };
 		9AC701DE179DA3AA00547A91 /* NewOld.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = NewOld.png; sourceTree = "<group>"; };
@@ -156,11 +156,11 @@
 				9A4FDB5B179B2D2B00FB7F2B /* RMEAppDelegate.m */,
 				9A4FDB63179B2D2C00FB7F2B /* RMEViewController.h */,
 				9A4FDB64179B2D2C00FB7F2B /* RMEViewController.m */,
-				9A4FDB66179B2D2C00FB7F2B /* RMEViewController.xib */,
 				9A4FDB52179B2D2B00FB7F2B /* Supporting Files */,
 				9A4FDB72179B3D2300FB7F2B /* RMECustomCell.h */,
 				9A4FDB73179B3D2300FB7F2B /* RMECustomCell.m */,
-				9A4FDB75179B409400FB7F2B /* RMECustomCell.xib */,
+				9077249723845D6E00789EAC /* RMEView.storyboard */,
+				907724C12384655900789EAC /* Assets.xcassets */,
 			);
 			path = RMEIdeasPullToSortExample;
 			sourceTree = "<group>";
@@ -259,6 +259,7 @@
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
+				English,
 				en,
 			);
 			mainGroup = 9A4FDB3F179B2D2B00FB7F2B;
@@ -280,8 +281,7 @@
 				9A4FDB5E179B2D2C00FB7F2B /* Default.png in Resources */,
 				9A4FDB60179B2D2C00FB7F2B /* Default@2x.png in Resources */,
 				9A4FDB62179B2D2C00FB7F2B /* Default-568h@2x.png in Resources */,
-				9A4FDB68179B2D2C00FB7F2B /* RMEViewController.xib in Resources */,
-				9A4FDB76179B409400FB7F2B /* RMECustomCell.xib in Resources */,
+				907724C22384655900789EAC /* Assets.xcassets in Resources */,
 				9A4FDB7A179B55B700FB7F2B /* CellDivider.png in Resources */,
 				9A4FDB7B179B55B700FB7F2B /* CellDivider@2x.png in Resources */,
 				9AC701F6179DA3AA00547A91 /* NewOld.png in Resources */,
@@ -308,6 +308,7 @@
 				9AC70213179DA51700547A91 /* LowHigh@2x.png in Resources */,
 				9AC70214179DA51700547A91 /* LowHighSelected.png in Resources */,
 				9AC70215179DA51700547A91 /* LowHighSelected@2x.png in Resources */,
+				907724BE2384640200789EAC /* RMEView.storyboard in Resources */,
 				9AFF181E179E0AC4000A4B4D /* HowtoUse.txt in Resources */,
 				9AFF1821179E0DF4000A4B4D /* BIT_Top_Banner.png in Resources */,
 				9AFF1822179E0DF4000A4B4D /* BIT_Top_Banner@2x.png in Resources */,
@@ -338,14 +339,6 @@
 				9A4FDB55179B2D2B00FB7F2B /* en */,
 			);
 			name = InfoPlist.strings;
-			sourceTree = "<group>";
-		};
-		9A4FDB66179B2D2C00FB7F2B /* RMEViewController.xib */ = {
-			isa = PBXVariantGroup;
-			children = (
-				9A4FDB67179B2D2C00FB7F2B /* en */,
-			);
-			name = RMEViewController.xib;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -413,6 +406,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "RMEIdeasPullToSortExample/RMEIdeasPullToSortExample-Prefix.pch";
 				INFOPLIST_FILE = "RMEIdeasPullToSortExample/RMEIdeasPullToSortExample-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -424,6 +418,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "RMEIdeasPullToSortExample/RMEIdeasPullToSortExample-Prefix.pch";
 				INFOPLIST_FILE = "RMEIdeasPullToSortExample/RMEIdeasPullToSortExample-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};

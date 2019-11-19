@@ -73,13 +73,11 @@ TableSortSortCriteria;
                                                                               delegate:self
                                                                       clientScrollView:self.exampleTableView];
     CGRect originalFrame = self.rmeideasPullDownControl.frame;
-    self.rmeideasPullDownControl.frame = CGRectMake(0.0, 45.0, originalFrame.size.width, originalFrame.size.height);
+    self.rmeideasPullDownControl.frame = CGRectMake(0.0, 60.0, originalFrame.size.width, originalFrame.size.height);
     
     //It is recommended that the control is placed behind the client scrollView. Remember to make its background transparent.
     [self.view insertSubview:self.rmeideasPullDownControl belowSubview:self.exampleTableView];
     
-    [self.exampleTableView registerNib:[UINib nibWithNibName:@"RMECustomCell" bundle:nil]
-                forCellReuseIdentifier:@"RMECustomCell"];
 }
 
 - (void) viewWillAppear:(BOOL)animated
